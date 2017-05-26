@@ -99,6 +99,7 @@
     
     [[headerView btnShowHide] addTarget:self action:@selector(btnTapShowHideSection:) forControlEvents:UIControlEventTouchUpInside];
     
+    //random color
     [headerView.contentView setBackgroundColor:[UIColor colorWithHue:drand48() saturation:1.0 brightness:1.0 alpha:1.0]];
 
     return headerView.contentView;
