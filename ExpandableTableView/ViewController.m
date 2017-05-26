@@ -41,14 +41,14 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 10;
+    return 20;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if ([arrSelectedSectionIndex containsObject:[NSNumber numberWithInteger:section]])
     {
-        return 5;
+        return 4;
     }else{
         return 0;
     }
@@ -67,7 +67,7 @@
     
     cell.lblName.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
 
-    cell.backgroundColor = [UIColor colorWithHue:drand48() saturation:1.0 brightness:1.0 alpha:1.0];
+    cell.backgroundColor = indexPath.row%2==0?[UIColor lightTextColor]:[[UIColor lightTextColor] colorWithAlphaComponent:0.5f];
     
     return cell;
 }
@@ -88,7 +88,7 @@
         headerView = [tableView dequeueReusableCellWithIdentifier:@"ViewControllerCellHeader"];
     }
 
-    headerView.lbTitle.text = [NSString stringWithFormat:@"%ld", (long)section];
+    headerView.lbTitle.text = [NSString stringWithFormat:@"Section %ld", (long)section];
     
     if ([arrSelectedSectionIndex containsObject:[NSNumber numberWithInteger:section]])
     {
@@ -100,7 +100,7 @@
     [[headerView btnShowHide] addTarget:self action:@selector(btnTapShowHideSection:) forControlEvents:UIControlEventTouchUpInside];
     
     //random color
-    [headerView.contentView setBackgroundColor:[UIColor colorWithHue:drand48() saturation:1.0 brightness:1.0 alpha:1.0]];
+    [headerView.contentView setBackgroundColor:section%2==0?[UIColor groupTableViewBackgroundColor]:[[UIColor groupTableViewBackgroundColor] colorWithAlphaComponent:0.5f]];
 
     return headerView.contentView;
 }
@@ -124,6 +124,11 @@
     [tblView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+- (NSInteger)randomNumberBetween:(NSInteger)min maxNumber:(NSInteger)max
+{
+    return min + arc4random_uniform(max - min + 1);
+}
+    
 #pragma mark - Memory Warning
 
 - (void)didReceiveMemoryWarning
