@@ -17,6 +17,8 @@
 		F13D8ED51CDB755C00CB287F /* ViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F13D8ED41CDB755C00CB287F /* ViewControllerCell.m */; };
 		F1C6A42E1ED8431400B0EDED /* collapsed.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C6A42C1ED8431400B0EDED /* collapsed.png */; };
 		F1C6A42F1ED8431400B0EDED /* expanded.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C6A42D1ED8431400B0EDED /* expanded.png */; };
+		F1C6A4321ED8499400B0EDED /* Preview_multipleExpanded.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C6A4301ED8499400B0EDED /* Preview_multipleExpanded.png */; };
+		F1C6A4331ED8499400B0EDED /* Preview_singleExpanded.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C6A4311ED8499400B0EDED /* Preview_singleExpanded.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		F13D8ED41CDB755C00CB287F /* ViewControllerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerCell.m; sourceTree = "<group>"; };
 		F1C6A42C1ED8431400B0EDED /* collapsed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collapsed.png; sourceTree = "<group>"; };
 		F1C6A42D1ED8431400B0EDED /* expanded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expanded.png; sourceTree = "<group>"; };
+		F1C6A4301ED8499400B0EDED /* Preview_multipleExpanded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Preview_multipleExpanded.png; sourceTree = "<group>"; };
+		F1C6A4311ED8499400B0EDED /* Preview_singleExpanded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Preview_singleExpanded.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 				F13D8EC21CDB631E00CB287F /* Main.storyboard */,
 				F1C6A42C1ED8431400B0EDED /* collapsed.png */,
 				F1C6A42D1ED8431400B0EDED /* expanded.png */,
+				F1C6A4301ED8499400B0EDED /* Preview_multipleExpanded.png */,
+				F1C6A4311ED8499400B0EDED /* Preview_singleExpanded.png */,
 				F13D8EC51CDB631E00CB287F /* Assets.xcassets */,
 				F13D8EC71CDB631E00CB287F /* LaunchScreen.storyboard */,
 				F13D8ECA1CDB631E00CB287F /* Info.plist */,
@@ -155,9 +161,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C6A42F1ED8431400B0EDED /* expanded.png in Resources */,
+				F1C6A4321ED8499400B0EDED /* Preview_multipleExpanded.png in Resources */,
 				F13D8EC91CDB631E00CB287F /* LaunchScreen.storyboard in Resources */,
 				F13D8EC61CDB631E00CB287F /* Assets.xcassets in Resources */,
 				F13D8EC41CDB631E00CB287F /* Main.storyboard in Resources */,
+				F1C6A4331ED8499400B0EDED /* Preview_singleExpanded.png in Resources */,
 				F1C6A42E1ED8431400B0EDED /* collapsed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
