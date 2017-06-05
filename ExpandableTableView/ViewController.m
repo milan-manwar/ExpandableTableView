@@ -14,10 +14,13 @@
 
 #include <stdlib.h>
 
+#define count 20
+
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UITableView *tblView;
     NSMutableArray *arrSelectedSectionIndex;
+    BOOL isMultipleExpansionAllowed;
 }
 @end
 
@@ -29,7 +32,14 @@
 {
     [super viewDidLoad];
     
+    //Set isMultipleExpansionAllowed = true is multiple expanded sections to be allowed at a time. Default is NO.
+    isMultipleExpansionAllowed = YES;
+    
     arrSelectedSectionIndex = [[NSMutableArray alloc] init];
+
+    if (!isMultipleExpansionAllowed) {
+        [arrSelectedSectionIndex addObject:[NSNumber numberWithInt:count+2]];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -41,7 +51,7 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 20;
+    return count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -109,7 +119,11 @@
 {
     if (!sender.selected)
     {
-        [arrSelectedSectionIndex addObject:[NSNumber numberWithInteger:sender.tag]];
+        if (!isMultipleExpansionAllowed) {
+            [arrSelectedSectionIndex replaceObjectAtIndex:0 withObject:[NSNumber numberWithInteger:sender.tag]];
+        }else {
+            [arrSelectedSectionIndex addObject:[NSNumber numberWithInteger:sender.tag]];
+        }
 
         sender.selected = YES;
     }else{
@@ -121,14 +135,13 @@
         }
     }
 
-    [tblView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
+    if (!isMultipleExpansionAllowed) {
+        [tblView reloadData];
+    }else {
+        [tblView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
 
-- (NSInteger)randomNumberBetween:(NSInteger)min maxNumber:(NSInteger)max
-{
-    return min + arc4random_uniform(max - min + 1);
-}
-    
 #pragma mark - Memory Warning
 
 - (void)didReceiveMemoryWarning
